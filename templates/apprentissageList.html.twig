@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="/style/table.css">
+    <title>Document</title>
+</head>
+<body>
+    {% if error != '' %}
+        <div class="error">{{error}}</div>    
+    {% endif %}
+    <header>
+        <nav class="topnav" id="myTopnav">
+            <a class="topnav__link" href="index.html">Home</a>
+            <a class="topnav__link" href="exportCsv.php">format .csv</a>
+            <a class="topnav__link" href="addApprentissage.php">Ajouter a la liste</a>
+            <a class="topnav__link" id="right" href="index.html">| Logout</a>
+        </nav>
+    </header>
+    <main>
+    <table class='table'>
+      <tr class="table_title"> <th> Entreprise </th> <th> Contact </th> <th> Lieux </th> <th> Poste </th> <th> télétravail </th> <th> Etat de la candidature </th>
+        {# <th colspan="3" class="action_th"> action </th>  #}
+      </tr>
+
+            {% for apprentissage in apprentissages %}
+                <tr>
+                    <th class="data">{{ apprentissage._entreprise }}</th>
+                    <th class="data">{{ apprentissage._contact }}</th>
+                    <th class="data">{{ apprentissage._lieux }}</th>
+                    <th class="data">{{ apprentissage._poste }}</th>
+                    <th class="data">{{ apprentissage._teletravail }}</th>
+                    <th class="data">{{ apprentissage._candidature }}</th>
+                </tr>
+            {% endfor %}
+            </tr>
+    </table>
+        
+    </main>
+</body>
+</html>

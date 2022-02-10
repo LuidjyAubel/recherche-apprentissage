@@ -1,0 +1,28 @@
+
+.form_container {
+    display: flex;
+    justify-content: center;
+}
+
+.apprentissage_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+}
+.form-control {
+    padding-right: 80px;
+    height: 30px;
+}
+.btn {
+    font-size: large;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    border: none;
+    background-color: #F15025;
+    color: white;
+}
+textarea {
+    height: 40px;
+}
