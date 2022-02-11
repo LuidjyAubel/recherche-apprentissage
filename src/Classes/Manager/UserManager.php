@@ -48,14 +48,14 @@ class UserManager
     public function connectUser($email, $password)
     {
         session_start();
-        $_SESSION["connecter"] = "closed";
+        $_SESSION["connecter"] = false;
         $request = $this->_db->query('SELECT `user_id`, `user_mail`, `user_password` FROM users');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)){
             if ($email == $ligne['user_mail']){
                 $hash = $ligne['user_password'];
                 if (password_verify($password, $hash)) {
                     echo 'Le mot de passe est valide !';
-                    $_SESSION['connecter'] = "oppen";
+                    $_SESSION['connecter'] = true;
                     header('Location: apprentissageList.php');
                 } else {
                     session_destroy();
@@ -69,7 +69,7 @@ class UserManager
     {
         $userList = array();
 
-        $request = $this->_db->query('SELECT user_id, user_mail FROM users;');
+        $request = $this->_db->query('SELECT `user_id`, user_mail FROM users;');
         while ($ligne = $request->fetch(PDO::FETCH_ASSOC)) {
             $user = new User($ligne);
             $userList[] = $user;

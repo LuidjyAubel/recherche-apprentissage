@@ -21,10 +21,10 @@ $error = '';
 
 require_once("conf.php");
 
-session_cache_expire(10);
+//session_cache_expire(10);
 session_start();
-
-if ($_SESSION['connecter'] = TRUE) {
+//var_dump($_SESSION['connecter']);
+if ((isset($_SESSION['connecter'] )) && ($_SESSION['connecter'] == true)) {
     try {
         $db = new PDO($dsn, $usr, $pwd);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
@@ -43,5 +43,5 @@ if ($_SESSION['connecter'] = TRUE) {
     );
 } else {
     header("connect.php");
-    session_abort();
+    session_destroy();
 }

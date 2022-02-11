@@ -40,7 +40,7 @@ class User {
      *
      * @return  self
      */ 
-    public function setId($_id)
+    public function setUser_id($_id)
     {
         $this->_id = $_id;
 
@@ -60,7 +60,7 @@ class User {
      *
      * @return  self
      */ 
-    public function setEmail($_email)
+    public function setUser_mail($_email)
     {
         $this->_email = $_email;
 
